@@ -23,6 +23,8 @@ RUN apt-get autoremove -y && \
 
 RUN npm install -g bower
 
+ADD ssh_config /etc/ssh/ssh_config
+
 ADD run.sh /
 RUN chmod +x /run.sh
 
