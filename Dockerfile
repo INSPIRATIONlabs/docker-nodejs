@@ -23,9 +23,11 @@ RUN apt-get autoremove -y && \
 
 RUN npm install -g bower
 
-WORKDIR /var/node
+ADD run.sh /
+RUN chmod +x /run.sh
 
+WORKDIR /var/node
 VOLUME ["/var/node"]
 EXPOSE 3000
 EXPOSE 3443
-CMD ["node", "app.js"]
+CMD ["/run.sh"]
