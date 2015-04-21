@@ -6,5 +6,5 @@ if [ ! -z "$GITREPO" ]; then
 	cd /var/node
 	npm install --unsafe-perm
 	bower --allow-root install
-	node app.js
 fi
+node app.js
