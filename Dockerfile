@@ -10,7 +10,7 @@ RUN apt-get install -y software-properties-common
 RUN curl -sL https://deb.nodesource.com/setup_iojs_1.x | sudo bash -
 RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe" >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y nodejs ssh git build-essential python pkg-config
+RUN apt-get install -y iojs ssh git build-essential python pkg-config
 RUN apt-get install -y catdoc poppler-utils tesseract-ocr unzip
 RUN mkdir /var/node
 
@@ -23,9 +23,11 @@ RUN apt-get autoremove -y && \
 
 RUN npm install -g bower
 
-WORKDIR /var/node
+ADD run.sh /
+RUN chmod +x /run.sh
 
+WORKDIR /var/node
 VOLUME ["/var/node"]
 EXPOSE 3000
 EXPOSE 3443
-CMD ["node", "app.js"]
+CMD ["/run.sh"]
