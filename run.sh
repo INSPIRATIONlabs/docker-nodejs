@@ -7,4 +7,8 @@ if [ ! -z "$GITREPO" ]; then
 	npm install --unsafe-perm
 	bower --allow-root install
 fi
+if [ -z "$TIMEZONE" ]; then
+	TIMEZONE="Europe/Berlin"
+fi
+echo $TIMEZONE | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
 node app.js
