@@ -7,7 +7,7 @@ MAINTAINER Dominic Böttger
 
 RUN apt-get update
 RUN apt-get install -y software-properties-common
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
 RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe" >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install -y nodejs ssh git build-essential python pkg-config
